@@ -12,5 +12,5 @@ interface GoogleDistanceContract
      *
      * @return int
      */
-    public function calculate($origins, $destinations): int;
+    public function calculate($origins, $destinations): int | array;
 }
