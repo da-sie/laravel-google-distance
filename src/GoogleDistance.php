@@ -115,10 +115,14 @@ class GoogleDistance implements GoogleDistanceContract
 
             if (200 === $statusCode) {
                 $responseData = json_decode($response->getBody()->getContents());
-
+                $output = [];
                 if (isset($responseData->rows[0]->elements[0]->distance)) {
-                    return $responseData->rows[0]->elements[0]->distance->value;
+                    $output['distance'] = $responseData->rows[0]->elements[0]->distance->value;
                 }
+                if (isset($responseData->rows[0]->elements[0]->duration)) {
+                    $output['duration'] = $responseData->rows[0]->elements[0]->duration->value;
+                }
+                return $output;
             }
 
             return -1;
