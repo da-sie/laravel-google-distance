@@ -9,7 +9,7 @@ if (!function_exists('google_distance')) {
      * @param string $origins
      * @param string $destinations
      *
-     * @return int
+     * @return int | array
      */
     function google_distance($origins, $destinations)
     {
